@@ -1,3 +1,5 @@
 node_modules/
 public/*
 !public/.placeholder
+
+npm-debug.log
