@@ -1,0 +1,35 @@
+Warning message:
+package 'ggplot2' was built under R version 3.2.5 
+Warning message:
+package 'plyr' was built under R version 3.2.5 
+Loading required package: Matrix
+Loading required package: methods
+Warning message:
+package 'lme4' was built under R version 3.2.5 
+Warning message:
+package 'reshape2' was built under R version 3.2.5 
+Loading required package: lattice
+Loading required package: survival
+Loading required package: Formula
+
+Attaching package: 'Hmisc'
+
+The following objects are masked from 'package:plyr':
+
+    is.discrete, summarize
+
+The following objects are masked from 'package:base':
+
+    format.pval, round.POSIXt, trunc.POSIXt, units
+
+Warning message:
+package 'Hmisc' was built under R version 3.2.5 
+
+Attaching package: 'xtable'
+
+The following objects are masked from 'package:Hmisc':
+
+    label, label<-
+
+Warning message:
+package 'xtable' was built under R version 3.2.5 

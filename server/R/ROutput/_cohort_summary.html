@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<h1 id="load-compliance">Load compliance</h1>
+<p>Date: 2016-06-08 13:54:03</p>
+<p>This is a test report on load compliance using simulated data.<br />The report changes with selected cohort. Interactive graphs could be added as a separate functionality.</p>
+<h2 id="probability-of-compliance">Probability of compliance</h2>
+The following table shows 5 combinations of age, weight and diagnosis whith the lowest probabilities of compliance.<br />The compliance probabilities are estimated using mixed effects models with diagnosis as random effects.<br />The result would be that the combination of age, weight and diagnosis in the first row is most likely to lead to non-compliance.<br />If there is not enough data you will see some error messages below.<br /><br>
+<center>
+<p><em>Top 5 combinations with lowest probability of compliance.</em></p>
+<pre><code>## fixed-effect model matrix is rank deficient so dropping 2 columns / coefficients</code></pre>
+<pre><code>## Error: Response is constant</code></pre>
+</center>
+<p><br> <br></p>
+<h2 id="some-basic-data-summary">Some basic data summary</h2>
+Basic counts:
+<center>
+<!-- html table generated in R 3.2.3 by xtable 1.8-2 package -->
+<!-- Wed Jun 08 13:54:03 2016 -->
+<table cellspacing="5" cellpadding="10" border="1">
+  <tr> <td align="center"> 
+Number of patients
+</td> <td align="center">   
+3
+</td> </tr>
+  <tr> <td align="center"> 
+Number of diagnosis
+</td> <td align="center">   
+3
+</td> </tr>
+  <tr> <td align="center"> 
+Number of occupations
+</td> <td align="center">   
+3
+</td> </tr>
+   </table>
+</center>  
+<p><br> <br></p>
+Load compliance by age, weight and gender. Both age and weight are devided into five equal groups.<br />The confidence bars represent 95% binomial confidence intervals.<br /><br> <br>
+<center>
+<p><em>Compliance by age, weight and gender.</em></p>
+<img src="figure/../../../public/comp-plot--1.png" alt="plot of chunk ../../../public/comp-plot-" /><br />
+</center>  
+
+
+
+<h2 id="compliance-percentage-by-diagnosis">Compliance percentage by diagnosis</h2>
+<br>
+<center>
+<em>Compliance by diagnosis.</em><br /><!-- html table generated in R 3.2.3 by xtable 1.8-2 package --> <!-- Wed Jun 08 13:54:04 2016 -->
+<table cellspacing="5" cellpadding="10" border="1">
+<tr> <th> 
+Diagnosis
+</th> <th> 
+Load
+</th> <th> 
+Load Compliance
+</th> <th> 
+%
+</th>  </tr>
+  <tr> <td align="center"> 
+21000
+</td> <td align="center"> 
+21000.00
+</td> <td align="center"> 
+21000.00
+</td> <td align="center"> 
+100.00
+</td> </tr>
+  <tr> <td align="center"> 
+23400
+</td> <td align="center"> 
+23400.00
+</td> <td align="center"> 
+23400.00
+</td> <td align="center"> 
+100.00
+</td> </tr>
+  <tr> <td align="center"> 
+26800
+</td> <td align="center"> 
+26800.00
+</td> <td align="center"> 
+26800.00
+</td> <td align="center"> 
+100.00
+</td> </tr>
+   </table>
+</center>    
+<p><br><br /><br></p>
+</body>
+</html>

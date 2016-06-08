@@ -1,0 +1,89 @@
+Load compliance
+================================================================================
+
+Date: `r Sys.time()`
+
+This is a test report on load compliance using simulated data.  
+The report changes with selected cohort. Interactive graphs could be added as a separate functionality.  
+
+## Probability of compliance  
+The following table shows 5 combinations of age, weight and diagnosis whith the lowest probabilities of compliance.  
+The compliance probabilities are estimated using mixed effects models with diagnosis as random effects.  
+The result would be that the combination of age, weight and diagnosis in the first row is most likely to lead to non-compliance.  
+If there is not enough data you will see some error messages below.  
+<br>
+<center>
+*Top 5 combinations with lowest probability of compliance.*
+```{r, echo=FALSE, results='asis'}
+if(length(levels(d$diagnosis)) > 1){
+  m <- glmer(cbind(load - loadCompliance, load) ~ AgeBand + WeightBand + (1|diagnosis),
+             data = d, family = "binomial")
+  d.new <- expand.grid(AgeBand = levels(d$AgeBand),
+                       WeightBand = levels(d$WeightBand),
+                       diagnosis = levels(d$diagnosis))
+  d.new$Prob <- predict(m, newdata = d.new, type = "response")
+  d.new <- d.new[order(d.new$Prob), ]
+  d.new$Prob <- round(100 * d.new$Prob, 2)
+  top5 <- d.new[1:5, ]
+  colnames(top5) <- c("Age Band", "Weight Band", "Diagnosis", "Probability %")
+  #kable(top5, format = "markdown", align = c("c", "c", "l", "c"), row.names = FALSE)
+  print(xtable(top5, align = rep("c", 5)), type = "html", include.rownames = FALSE,
+        html.table.attributes = 'cellspacing="5" cellpadding="10" border="1"')
+} else {
+  cat("\nWARNING: at least two diagnosis are required in order to calculate compliance probabilities.\n")
+}
+```  
+</center>
+<br>
+<br>
+
+## Some basic data summary  
+Basic counts: 
+<center>
+```{r, echo=FALSE, results='asis'}
+counts <- c("Number of patients" = nrow(d),
+            "Number of diagnosis" = length(unique(d$diagnosis)),
+            "Number of occupations" = length(unique(d$occupation)))
+counts <- as.data.frame(counts)
+#kable(counts, format = "markdown", align = "l", col.names = "")
+print(xtable(counts, align = rep("c", 2)), type = "html", include.colnames = FALSE,
+        html.table.attributes = 'cellspacing="5" cellpadding="10" border="1"')
+```
+</center>  
+<br>
+<br>
+
+Load compliance by age, weight and gender. Both age and weight are devided into five equal groups.  
+The confidence bars represent 95% binomial confidence intervals.  
+<br>
+<br>
+<center>
+*Compliance by age, weight and gender.*  
+```{r, echo=FALSE}
+comp.plot <- knit_expand(file = "comp_plots.Rmd", fPrefix = args$filePrefix) 
+```
+`r knit(text = comp.plot)`  
+</center>  
+
+
+
+## Compliance percentage by diagnosis
+<br>
+<center>
+*Compliance by diagnosis.*  
+```{r, echo=FALSE, results='asis'}
+z <- ddply(d, .(Diagnosis = diagnosis), function(x){
+  data.frame(Load = sum(x$load, na.rm = TRUE),
+             LoadCompliance = sum(x$loadCompliance, na.rm = TRUE))
+})
+z$Perc <- round(100 * z$LoadCompliance / z$Load, 2)
+z <- z[order(z$Perc), ]
+colnames(z) <- c("Diagnosis", "Load", "Load Compliance", "%")
+print(xtable(z, align = rep("c", ncol(z) + 1)), type = "html", include.rownames = FALSE,
+        html.table.attributes = 'cellspacing="5" cellpadding="10" border="1"')
+```
+</center>    
+<br>  
+<br>
+
+

@@ -1,14 +1,15 @@
 /* jshint node: true */
+/* global Ext */
 "use strict";
 
 var $ = require('jquery'),
-  another = require('scripts/another');
+  main = require('scripts/main');
 
 var App = {
   init: function init() {
-
-    another.doSomething();
-
+    Ext.onReady(function() {
+      main.init();
+    });
   }
 };
 

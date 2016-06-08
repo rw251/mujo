@@ -7,10 +7,15 @@ module.exports = {
         'app.js': /^app\//
       },
       order: {
-        before: [ /jquery/ ]
+        before: [/jquery/]
       }
     },
     stylesheets: { joinTo: 'app.css' },
     templates: { joinTo: 'app.js' }
+  },
+
+  server: {
+    run: true,
+    path: "server.js"
   }
 };
