@@ -1,7 +1,7 @@
 Load compliance
 ================================================================================
 
-Date: 2016-06-08 13:54:03
+Date: 2016-06-08 14:16:59
 
 This is a test report on load compliance using simulated data.  
 The report changes with selected cohort. Interactive graphs could be added as a separate functionality.  
@@ -30,7 +30,7 @@ If there is not enough data you will see some error messages below.
 Basic counts: 
 <center>
 <!-- html table generated in R 3.2.3 by xtable 1.8-2 package -->
-<!-- Wed Jun 08 13:54:03 2016 -->
+<!-- Wed Jun 08 14:16:59 2016 -->
 <table cellspacing="5" cellpadding="10" border="1">
   <tr> <td align="center"> Number of patients </td> <td align="center">   3 </td> </tr>
   <tr> <td align="center"> Number of diagnosis </td> <td align="center">   3 </td> </tr>
@@ -58,7 +58,7 @@ The confidence bars represent 95% binomial confidence intervals.
 <center>
 *Compliance by diagnosis.*  
 <!-- html table generated in R 3.2.3 by xtable 1.8-2 package -->
-<!-- Wed Jun 08 13:54:04 2016 -->
+<!-- Wed Jun 08 14:17:00 2016 -->
 <table cellspacing="5" cellpadding="10" border="1">
 <tr> <th> Diagnosis </th> <th> Load </th> <th> Load Compliance </th> <th> % </th>  </tr>
   <tr> <td align="center"> 21000 </td> <td align="center"> 21000.00 </td> <td align="center"> 21000.00 </td> <td align="center"> 100.00 </td> </tr>
